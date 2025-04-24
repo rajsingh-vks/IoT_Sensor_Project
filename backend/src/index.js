@@ -1,42 +1,45 @@
-const express = require('express')
+require('dotenv').config();
 require('./config/DB/mongoose')
-
-const userRouter = require('./routes/user')
-// const User = require('./models/user')
+const express = require('express')
+const cors = require('cors');
+const userRouter = require('./routes/user');
+const deviceRouter = require('./routes/device');
 
 const app = express()
-const port = process.env.PORT || 3000
 
+app.use(cors());
 app.use(express.json())
 
-app.use(userRouter)
-
+app.use('/api', userRouter)
+app.use('/', deviceRouter)
 // Port listing
 
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log('server is running on port =' + port)
 })
 
 
-const bcrypt = require('bcryptjs')
-const myFunction = async() => {
-    const password = 'Red12345!'
-    const hashedPassword = await bcrypt.hash(password, 8)
-    console.log(password)
-    console.log(hashedPassword)
+// const bcrypt = require('bcryptjs')
+// const myFunction = async() => {
+//     const password = 'Red12345!'
+//     const hashedPassword = await bcrypt.hash(password, 8)
+//     console.log(password)
+//     console.log(hashedPassword)
 
-    const isMatch = await bcrypt.compare('red12345!', hashedPassword)
-    console.log(isMatch)
-}
+//     const isMatch = await bcrypt.compare('red12345!', hashedPassword)
+//     console.log(isMatch)
+// }
+
 
 // const jwt = require('jsonwebtoken')
 
 // const myFunction = async() => {
-//     const token = jwt.sign({ _id: 'abc123' }, 'newCourse', {expiresIn: '7 days'})
+//     const token = jwt.sign({ _id: 'abc123' }, process.env.JWT_SECRET, { expiresIn: '7 days' })
 //     console.log(token)
 
-//     const data = jwt.verify(token, 'newCourse')
+//     const data = jwt.verify(token, process.env.JWT_SECRET)
 //     console.log(data)
 // }
 
-myFunction()
+// myFunction()

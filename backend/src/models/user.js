@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 
 const bcrypt = require('bcryptjs')
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 
 const userSchema = new mongoose.Schema({
@@ -43,35 +43,41 @@ const userSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
-    // devices: [
-    //     { 
-    //         type: mongoose.Schema.Types.ObjectId, 
-    //         ref: 'Device', 
-    //         default: [] 
-    //     }
-    // ],
     city: {
         type: String,
         required: true
     },
-    // token: [{
-    //     token: {
-    //         type: String,
-    //         required: true
-    //     }
-    // }]
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
 })
+
+
+//restict login details to show - password and token array
+userSchema.methods.toJSON = function () {
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+}
+
 
 // We are using normal function because arrow function don't bind
 
-// userSchema.method.generateAuthToken = async function () {
-//     const user = this
-//     const token = jwt.sign({ _id: user.id.toString() }, 'newCourse')
+userSchema.methods.generateAuthToken = async function () {
+    const user = this
+    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET, { expiresIn: '1h' })
 
-//     user.token = user.token.concat({ token })
-//     await user.save()
-//     return token
-// }
+    user.tokens = user.tokens.concat({ token })
+    await user.save()
+    return token
+}
 
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
@@ -84,6 +90,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
     if(!isMatch) {
         throw new Error('Unable to login')
     }
+    return user;
 }
 
 userSchema.pre('save', async function (next) {
