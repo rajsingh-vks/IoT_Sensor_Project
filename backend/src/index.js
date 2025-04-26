@@ -7,6 +7,7 @@ const deviceRouter = require('./routes/device');
 
 const app = express()
 
+
 app.use(cors());
 app.use(express.json())
 
