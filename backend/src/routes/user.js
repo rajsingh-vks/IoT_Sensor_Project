@@ -55,24 +55,37 @@ router.post('/users/login', async (req, res) => {
 
 
 // Logout
-router.post('/users/logout', auth, async (req, res) => {
+// router.post('/user/logout', auth, async (req, res) => {
+//     const token = localStorage.getItem('token');
+
+//     try {
+//         // Remove the current token from the user's token list
+//         req.user.tokens = req.user.tokens.filter((token) => {
+//             return token.token !== req.token
+//         })
+
+//         // Save the updated user to the database
+//         await req.user.save()
+
+//         // Send a success response
+
+//         return res.send({ message: 'Logged out successfully' });
+
+//     } catch (err) {
+//         return res.status(500).send({ error: 'Logout failed' });
+//     }
+// })
+
+router.post('/user/logout', auth, async (req, res) => {
     try {
-        // Remove the current token from the user's token list
-        req.user.tokens = req.user.tokens.filter((token) => {
-            return token.token !== req.token
-        })
-
-        // Save the updated user to the database
-        await req.user.save()
-
-        // Send a success response
-
-        return res.send({ message: 'Logged out successfully' });
-
+        req.user.tokens = req.user.tokens.filter(token => token.token !== req.token);
+        await req.user.save();
+        res.send({ message: 'Logged out successfully' });
     } catch (err) {
-        return res.status(500).send({ error: 'Logout failed' });
+        console.error('Logout route failed:', err);
+        res.status(500).send({ error: 'Logout failed' });
     }
-})
+});
 // Logout
 
 // Logout from all device

@@ -15,6 +15,20 @@ body {
 
 // Header
 header {
+    transition: all 0.3s ease;
+    position: relative;
+
+    .logo {
+        color: #000;
+        font-weight: bold;
+        font-size: 24px;
+        span {
+            height: 40px;
+            vertical-align: initial;
+            margin: auto;
+            padding-top: 4px;
+        }
+    }
     ul {
         li {
             .nav-link {
@@ -34,6 +48,21 @@ header {
         background-color: #34da7b;
         border-color: #34da7b;
         font-weight: 700;
+    }
+    &.sticky {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #212529;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        .logo {
+            span {
+                color: #fff;
+                padding-top: 6px;
+            }
+        }
     }
 }
 
@@ -115,7 +144,7 @@ header {
             }
 
             &.element_5 {
-                left: 35%;
+                left: 20%;
                 top: 250px;
             }
 
@@ -130,6 +159,12 @@ header {
 // Banner
 
 // Added Device
+.home_solution {
+    background-color: white;
+    h2 {
+        font-weight: 700;
+    }
+}
 .added_device {
     background-color: white;
     position: relative;
@@ -137,38 +172,7 @@ header {
     h2 {
         font-weight: 700;
     }
-
-    .carousel-control-prev {
-        position: absolute;
-        background-color: #34da7b;
-        top: -25%;
-        right: 5%;
-        left: auto;
-        height: 40px;
-        width: 40px;
-        border-radius: 10px;
-    }
-
-    .carousel-control-next {
-        position: absolute;
-        background-color: #34da7b;
-        top: -25%;
-        height: 40px;
-        width: 40px;
-        border-radius: 10px;
-    }
-
-    .carousel-control-next-icon,
-    .carousel-control-prev-icon {
-        width: 1.2rem;
-        height: 1.2rem;
-    }
-
-    .carousel-indicators {
-        display: none;
-    }
-
-    .card {
+    .device {
         background-color: #f0f0f4;
         border: none;
         box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
@@ -180,21 +184,65 @@ header {
             background-color: rgba(52, 218, 123, 0.1);
             transition: all 2s ease;
         }
-
-        .card-body {
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 700;
-            padding: 2.5rem 1.5rem;
-
-            img {
-                height: 120px;
-                display: block;
-                margin: auto;
-                margin-bottom: 2.5rem;
-            }
-        }
     }
+
+    // .carousel-control-prev {
+    //     position: absolute;
+    //     background-color: #34da7b;
+    //     top: -25%;
+    //     right: 5%;
+    //     left: auto;
+    //     height: 40px;
+    //     width: 40px;
+    //     border-radius: 10px;
+    // }
+
+    // .carousel-control-next {
+    //     position: absolute;
+    //     background-color: #34da7b;
+    //     top: -25%;
+    //     height: 40px;
+    //     width: 40px;
+    //     border-radius: 10px;
+    // }
+
+    // .carousel-control-next-icon,
+    // .carousel-control-prev-icon {
+    //     width: 1.2rem;
+    //     height: 1.2rem;
+    // }
+
+    // .carousel-indicators {
+    //     display: none;
+    // }
+
+    // .card {
+    //     background-color: #f0f0f4;
+    //     border: none;
+    //     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    //     margin-bottom: 10px;
+    //     border-radius: 10px;
+    //     cursor: pointer;
+    //     &:hover {
+    //         background-color: #34da7b;
+    //         background-color: rgba(52, 218, 123, 0.1);
+    //         transition: all 2s ease;
+    //     }
+
+    //     .card-body {
+    //         text-align: center;
+    //         font-size: 1rem;
+    //         font-weight: 700;
+    //         padding: 2.5rem 1.5rem;
+
+    //         img {
+    //             height: 120px;
+    //             display: block;
+    //             margin: auto;
+    //             margin-bottom: 2.5rem;
+    //         }
+    //     }
+    // }
 }
 
 // Added Device
@@ -219,8 +267,11 @@ footer {
 
 // Login
 .auth_wrapper {
-    height: 77.2vh;
+    min-height: 77.2vh;
     display: flex;
+    &.signupWrapper {
+        margin-bottom: 40px;
+    }
 
     .auth-signin {
         width: 100%;
@@ -258,3 +309,137 @@ footer {
     }
 }
 // Login
+
+// Dashboard
+.dashboard {
+
+    .wrapper {
+        position: relative;
+        .main-header {
+            min-height: 55px;
+            width: 100%;
+            background: #ffffff;
+            position: fixed;
+            z-index: 11;
+            .logo-header {
+                float: left;
+                width: 260px;
+                line-height: 55px;
+                border-right: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                padding-left: 25px;
+            }
+            .navbar-header {
+                padding: 8px 15px;
+                .nav-search .input-group {
+                    border: 1px solid #eee;
+                    background: #eee;
+                    border-radius: 50px;
+                    .nav-search .form-control {
+                        border: 0;
+                        background: transparent;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 260px;
+            background: #ffffff;
+            border-right: 1px solid #eee;
+            box-shadow: 6px 1px 20px rgba(69, 65, 78, 0.1);
+            .sidebar-wrapper {
+                position: relative;
+                padding-top: 55px;
+                .nav {
+                    display: block;
+                    float: none;
+                    margin-top: 20px;
+                    .nav-item {
+                        display: list-item;
+                        .nav-link {
+                            display: flex;
+                            align-items: center;
+                            color: #83848a;
+                            padding: 13px 25px;
+                            width: 100%;
+                            font-size: 14px;
+                            position: relative;
+                            text-decoration: none;
+                            font-weight: bold;
+                            svg {
+                                margin-right: 10px;
+                            }
+                            &.active {
+                                color: #fff;
+                                background-color: #34da7b;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .main-panel {
+            position: relative;
+            width: calc(100% - 260px);
+            float: right;
+            background: linear-gradient(90deg, rgba(52, 218, 123, 0.3), #f0f0f4, rgba(52, 218, 123, 0.3));
+
+            .content {
+                padding: 30px 15px;
+                margin-top: 55px;
+                form {
+                    input {
+                        width: 26%;
+                        margin-right: 2%;
+                        height: 45px;
+                        padding-left: 10px;
+                    }
+                    button {
+                        background-color: #34da7b;
+                        border-color: #34da7b;
+                        font-weight: 600;
+                        color: #fff;
+                        border-radius: 4px;
+                        width: 16%;
+                        height: 45px;
+                    }
+                }
+                .card {
+                    border: none;
+                }
+            }
+            .footer {
+                border-top: 1px solid #eee;
+                padding: 15px;
+                background: #ffffff;
+                bottom: -8px;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+}
+// Dashboard
+
+
+// .nav-link {
+//     // color: #333;
+//     padding: 10px;
+//     display: flex;
+//     align-items: center;
+//     text-decoration: none;
+//   }
+  
+  .nav-link.active {
+    color: #fff !important;
+    background-color: #34da7b;
+    font-weight: bold;
+  }

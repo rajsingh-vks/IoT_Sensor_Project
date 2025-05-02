@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors');
 const userRouter = require('./routes/user');
 const deviceRouter = require('./routes/device');
+const deviceMangementRouter = require('./routes/deviceManagment');
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use(express.json())
 
 app.use('/api', userRouter)
 app.use('/', deviceRouter)
+app.use('/device', deviceMangementRouter)
 // Port listing
 
 const port = process.env.PORT || 3000

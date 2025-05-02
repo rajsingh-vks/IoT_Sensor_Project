@@ -1,0 +1,263 @@
+@import './variables';
+@import './mixins';
+@import './reset';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: #f0f0f4;
+    padding: 0;
+    margin: 0;
+}
+
+// Header
+header {
+    ul {
+        li {
+            .nav-link {
+                font-weight: 700;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .btn-outline-success {
+        border-color: #34da7b;
+        font-weight: 700;
+        color: #34da7b;
+    }
+
+    .btn-success {
+        background-color: #34da7b;
+        border-color: #34da7b;
+        font-weight: 700;
+    }
+}
+
+// Header
+
+// Banner
+.banner {
+    background: url(../assets/apartment_bg.png) 110% 10% no-repeat;
+    background-size: 50%;
+
+    .banner_content {
+        height: 80vh;
+        display: inline-flex;
+
+        .content {
+            margin: auto;
+
+            h1 {
+                font-size: 6rem;
+                line-height: 6rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-top: 2rem;
+                font-weight: 600;
+                color: gray;
+            }
+        }
+    }
+
+    .bannerImage {
+        height: 85vh;
+        justify-content: end;
+    }
+
+    .sensored_element {
+        position: relative;
+
+        .element {
+            border-radius: 10px;
+            background-color: #f7f6f9;
+            width: fit-content;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+
+            span {
+                background-color: #34da7b;
+                border-radius: 10px;
+                padding: 6px 12px;
+                margin-right: 10px;
+
+                svg {
+                    color: #fff;
+                }
+            }
+
+            &.element_1 {
+                right: 0;
+                top: 100px;
+            }
+
+            &.element_2 {
+                right: 35%;
+                top: 250px;
+            }
+
+            &.element_3 {
+                left: 0;
+                top: 400px;
+            }
+
+            &.element_4 {
+                left: 0;
+                top: 100px;
+            }
+
+            &.element_5 {
+                left: 35%;
+                top: 250px;
+            }
+
+            &.element_6 {
+                right: 0;
+                top: 400px;
+            }
+        }
+    }
+}
+
+// Banner
+
+// Added Device
+.added_device {
+    background-color: white;
+    position: relative;
+
+    h2 {
+        font-weight: 700;
+    }
+
+    .carousel-control-prev {
+        position: absolute;
+        background-color: #34da7b;
+        top: -25%;
+        right: 5%;
+        left: auto;
+        height: 40px;
+        width: 40px;
+        border-radius: 10px;
+    }
+
+    .carousel-control-next {
+        position: absolute;
+        background-color: #34da7b;
+        top: -25%;
+        height: 40px;
+        width: 40px;
+        border-radius: 10px;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .carousel-indicators {
+        display: none;
+    }
+
+    .card {
+        background-color: #f0f0f4;
+        border: none;
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: #34da7b;
+            background-color: rgba(52, 218, 123, 0.1);
+            transition: all 2s ease;
+        }
+
+        .card-body {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 2.5rem 1.5rem;
+
+            img {
+                height: 120px;
+                display: block;
+                margin: auto;
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+}
+
+// Added Device
+
+// Footer
+footer {
+    background-color: white;
+     
+    .float_top {
+        border-radius: 10px;
+        background-color: #34da7b;
+        width: 50px;
+        height: 50px;
+        padding: 0.7rem;
+        display: inline-block;
+        text-align: center;
+        color: white;
+    }
+}
+
+// Footer
+
+// Login
+.auth_wrapper {
+    min-height: 77.2vh;
+    display: flex;
+    &.signupWrapper {
+        margin-bottom: 40px;
+    }
+
+    .auth-signin {
+        width: 100%;
+        max-width: 330px;
+        max-width: 360px;
+        border: none;
+        margin: auto;
+
+        .checkbox {
+            font-weight: 400;
+        }
+
+        .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .form-floating>.form-select {
+            padding-top: .625rem;
+        }
+    }
+    .btn {
+        background-color: #34da7b;
+        border: none;
+    }
+}
+// Login

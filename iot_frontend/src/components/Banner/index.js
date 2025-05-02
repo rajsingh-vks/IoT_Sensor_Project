@@ -1,8 +1,10 @@
 import { Container, Row, Col, Image, Card, Carousel } from 'react-bootstrap';
 import mobileImage from '../../assets/mobile.png';
 import camera from '../../assets/camera.png';
+import { TbAirConditioningDisabled } from "react-icons/tb";
 
-import { BsFillCloudSunFill, BsCloudSleetFill, BsBroadcast, BsAlarmFill } from "react-icons/bs";
+
+import { BsFillCloudSunFill, BsCloudSleetFill, BsBroadcast, BsAlarmFill, BsMusicNoteBeamed, BsLightbulb, BsCameraVideo } from "react-icons/bs";
 
 
 function Banner() {
@@ -34,15 +36,15 @@ function Banner() {
                                     </div>
                                     <div className='element element_2' data-aos="fade-up">
                                         <span>
-                                            <BsCloudSleetFill />
+                                            <BsMusicNoteBeamed />
                                         </span>
-                                        Humidity
+                                        Music Control
                                     </div>
                                     <div className='element element_3' data-aos="fade-up">
                                         <span>
-                                            <BsBroadcast />
+                                            <BsLightbulb />
                                         </span>
-                                        CO2 levels
+                                        Smart Spotlight
                                     </div>
                                 </div>
                             </Col>
@@ -53,21 +55,21 @@ function Banner() {
                                 <div className='sensored_element'>
                                     <div className='element element_4' data-aos="fade-up">
                                         <span>
-                                            <BsAlarmFill />
+                                            <TbAirConditioningDisabled />
                                         </span>
-                                        CO2 levels
+                                        Air Conditioner
                                     </div>
                                     <div className='element element_5' data-aos="fade-up">
                                         <span>
                                             <BsBroadcast />
                                         </span>
-                                        CO2 levels
+                                        Light and sound levels
                                     </div>
                                     <div className='element element_6' data-aos="fade-up">
                                         <span>
-                                            <BsBroadcast />
+                                            <BsCameraVideo />
                                         </span>
-                                        CO2 levels
+                                        Motion detection
                                     </div>
                                 </div>
                             </Col>
